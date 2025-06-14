@@ -9,17 +9,17 @@ if [ ! -f .env ]; then
   cp .env.example .env
 fi
 
-composer install --no-interaction --prefer-dist
-
-php artisan key:generate
-
-php artisan config:clear
-php artisan config:cache
-
-php artisan migrate
-php artisan doctrine:migrations:sync-metadata-storage
-php artisan doctrine:migrations:migrate --no-interaction
-
-# Create test database
 echo "Creating test database 'laravel_test'..."
 docker-compose exec -T db mysql -uroot -proot -e "CREATE DATABASE IF NOT EXISTS code_challenge_testing;;"
+
+
+docker-compose exec app composer install --no-interaction --prefer-dist
+docker-compose exec app php artisan key:generate
+docker-compose exec app php artisan config:clear
+docker-compose exec app php artisan config:cache
+
+docker-compose exec app php artisan migrate
+docker-compose exec app php artisan doctrine:migrations:sync-metadata-storage
+docker-compose exec app php artisan doctrine:migrations:migrate --no-interaction
+
+# Create test database
