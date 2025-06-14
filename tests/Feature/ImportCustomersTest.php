@@ -1,5 +1,7 @@
 <?php
 
+namespace Tests\Feature;
+
 use App\Contracts\RandomUserApiClientInterface;
 use App\Exceptions\ApiClientException;
 use App\Exceptions\CustomerImportException;
