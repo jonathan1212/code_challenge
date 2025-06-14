@@ -15,5 +15,6 @@ php artisan key:generate
 php artisan config:clear
 php artisan config:cache
 
+php artisan migrate
 php artisan doctrine:migrations:sync-metadata-storage
 php artisan doctrine:migrations:migrate --no-interaction
