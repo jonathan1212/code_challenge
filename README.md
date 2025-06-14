@@ -22,9 +22,9 @@ To start all services (pull latest images):
 
 ###  migrations, and start the application:
 ```
-docker-compose exec app ./start.sh
+docker-compose exec --user root app ./start.sh
 ```
-
+  
 
 ### To fetch and import 100 random users:
 
