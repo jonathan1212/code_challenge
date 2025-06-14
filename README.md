@@ -20,9 +20,9 @@ To start all services (pull latest images):
 ./start_docker.sh pull
 ```
 
-###  Run database migrations:
+###  migrations, and start the application:
 ```
-docker-compose exec app ./migrate.sh
+docker-compose exec app ./start.sh
 ```
 
 
