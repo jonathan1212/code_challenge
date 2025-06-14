@@ -38,6 +38,10 @@ case "$1" in
     echo "📋 Showing logs..."
     docker-compose logs -f
     ;;
+  remove-all)
+    echo "♻️ Restarting containers..."
+    docker-compose down -v && docker system prune -a --volumes -f
+    ;;
   *)
     echo "Usage: $0 {up|stop|pull|build|restart|logs}"
     exit 1

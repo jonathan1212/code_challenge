@@ -1,5 +1,7 @@
 *.log
 .DS_Store
+.idea
+.vscode
 .env
 .env.backup
 .env.production
