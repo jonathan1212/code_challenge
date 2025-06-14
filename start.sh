@@ -19,3 +19,7 @@ php artisan config:cache
 php artisan migrate
 php artisan doctrine:migrations:sync-metadata-storage
 php artisan doctrine:migrations:migrate --no-interaction
+
+# Create test database
+echo "Creating test database 'laravel_test'..."
+docker-compose exec -T db mysql -uroot -proot -e "CREATE DATABASE IF NOT EXISTS code_challenge_testing;;"
