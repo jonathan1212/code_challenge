@@ -5,6 +5,7 @@ set -e  # Exit on error
 export APP_ENV=local
 
 if [ ! -f .env ]; then
+  touch .env || { echo "ERROR: Cannot create .env"; exit 1; }
   cp .env.example .env
 fi
 
