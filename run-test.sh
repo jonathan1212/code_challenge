@@ -6,12 +6,10 @@ set -e
 docker-compose exec app php artisan config:clear
 
 # Discover all test files
-mapfile -t files < <(find tests/ -type f -name "*Test.php" | sort)
-
-if [ ${#files[@]} -eq 0 ]; then
-  echo "❌ No test files found."
-  exit 1
-fi
+files=()
+while IFS= read -r file; do
+  files+=("$file")
+done < <(find tests/ -type f -name "*Test.php" | sort)
 
 # Handle CLI arguments
 if [ "$1" == "all" ]; then
@@ -31,4 +29,3 @@ echo "📋 Select a test to run:"
 for i in "${!files[@]}"; do
   printf "%2d) %s\n" "$((i+1))" "${files[$i]}"
 done
-
