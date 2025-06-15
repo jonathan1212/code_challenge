@@ -15,8 +15,10 @@ docker-compose exec -T db mysql -uroot -proot -e "CREATE DATABASE IF NOT EXISTS 
 
 docker-compose exec app composer install --no-interaction --prefer-dist
 docker-compose exec app php artisan key:generate
-docker-compose exec app php artisan config:clear
 docker-compose exec app php artisan config:cache
+docker-compose exec app php artisan config:clear
+#docker-compose exec app php artisan cache:clear
+
 
 docker-compose exec app php artisan migrate
 docker-compose exec app php artisan doctrine:migrations:sync-metadata-storage
