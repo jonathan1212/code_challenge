@@ -52,6 +52,5 @@ docker-compose exec app php artisan import:customers 100
 ### run test
 
 ```bash
-docker-compose exec app php artisan test
-
+./run-test.sh all
 ```
